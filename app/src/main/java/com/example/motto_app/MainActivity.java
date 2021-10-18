@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                String url ="https://www.metaweather.com/api/location/search/?query=london";
+                String url ="http://10.0.2.2:8080/quiz";
 
                 JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                         try {
                             JSONObject cityInfo = response.getJSONObject(0);
-                            question = cityInfo.getString("title");
+                            question = cityInfo.getString("question");
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
