@@ -14,36 +14,33 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 public class MainActivity extends AppCompatActivity {
 
+//--------------------------------------------------------------------------------------------------//declaring variables
     RadioGroup RG;
     RadioButton bA, bB, bC, bD;
     TextView tA, tB, tC, tD, tQ;
-    Button bN;
-
-
+    Button bN, bS;
+    String texA, texB, texC, texD, texQues, texCorr, texNull;
+    String url ="http://10.0.2.2:8080/quiz";
+    String url2 ="http://10.0.2.2:8080/motto";
+    boolean start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
+        start = true;
 
-
-        //assigning variables to objects in layout
+//--------------------------------------------------------------------------------------------------//assigning variables to objects in layouts
         RG = findViewById(R.id.radioGroup);
 
         bA = findViewById(R.id.answerAButton);
@@ -58,71 +55,18 @@ public class MainActivity extends AppCompatActivity {
 
         tQ = findViewById(R.id.textQuestion);
 
+        bS = findViewById(R.id.StartButton);
         bN = findViewById(R.id.NextButton);
 
+        GetData gD = new GetData(MainActivity.this, url, 0, "question");
+//--------------------------------------------------------------------------------------------------//on-click listeners
 
 
-        //on-click listeners
-
-        bN.setOnClickListener(new View.OnClickListener() {
+        bS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-                String url ="http://10.0.2.2:8080/quiz";
-
-                JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        String question = "";
-
-                        try {
-                            JSONObject cityInfo = response.getJSONObject(0);
-                            question = cityInfo.getString("question");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        Toast.makeText(MainActivity.this, "Question: " + question, Toast.LENGTH_SHORT).show();
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                        Toast.makeText(MainActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-
-                queue.add(request);
-            }
-        });
-
-        bA.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "AAA", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "BBB", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bC.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "CCC", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bD.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "DDD", Toast.LENGTH_SHORT).show();
+                System.out.println(gD.getText());
+                setContentView(R.layout.activity_main);
             }
         });
     }
