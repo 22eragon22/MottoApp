@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GetData extends ViewModel {
+public class GetData {
 
     private final Context context;
     private String url;
@@ -33,7 +33,8 @@ public class GetData extends ViewModel {
         this.name = name;
     }
 
-    public JsonArrayRequest RequestGiver() {
+    public void RequestGiver() {
+        RequestQueue queue = Volley.newRequestQueue(context);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
 
@@ -58,18 +59,8 @@ public class GetData extends ViewModel {
                     }
                 });
 
-        return request;
-    }
-
-    public String RVH() {
-        RequestQueue queue = Volley.newRequestQueue(context);
-        JsonArrayRequest request = RequestGiver();
         queue.add(request);
-
-        return text;
     }
-
-
 
     public String getText() {
         return text;
