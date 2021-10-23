@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 public class GetData extends ViewModel{
 
-    private final Context context;
+    private Context context;
     private String url;
     private Integer index;
     private MutableLiveData<JSONObject> info;
@@ -29,8 +29,6 @@ public class GetData extends ViewModel{
         this.url = url;
         this.index = index;
     }
-
-
 
     MutableLiveData <JSONObject> getTest() {
         if (info == null) {
@@ -68,9 +66,6 @@ public class GetData extends ViewModel{
         queue.add(request);
     }
 
-
-
-
     public MutableLiveData<JSONObject> getInfo() {
         return info;
     }
@@ -88,6 +83,11 @@ public class GetData extends ViewModel{
     public void setIndex(Integer index) {
         this.index = index;
     }
+
+    public Context getContext() {
+        return context;
+    }
+    public void setContext(MainActivity mainActivity) { this.context = context; }
 }
 
 

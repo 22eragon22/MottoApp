@@ -8,7 +8,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.lifecycle.ViewModelProvider;
 
-
+import org.json.JSONException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -49,7 +49,29 @@ public class MainActivity extends AppCompatActivity {
 
         GetData gD = new GetData(MainActivity.this, url, index);
         gD = new ViewModelProvider(this).get(GetData.class);
-        gD.getTest().observe(this, );
+        gD.setIndex(index);
+        gD.setUrl(url);
+        gD.setContext(MainActivity.this);
+        gD.getTest().observe(this, info -> {
+
+            try {
+                texQues = info.getString("question");
+                texA = info.getString("answerA");
+                texB = info.getString("answerB");
+                texC = info.getString("answerC");
+                texD = info.getString("answerD");
+                texCorr = info.getString("correctAns");
+
+                tQ.setText(texQues);
+                tA.setText(texA);
+                tB.setText(texB);
+                tC.setText(texC);
+                tD.setText(texD);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
 
 //--------------------------------------------------------------------------------------------------//on-click listeners
 
