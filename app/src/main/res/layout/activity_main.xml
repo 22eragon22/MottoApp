@@ -16,7 +16,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
         android:gravity="center"
-        android:text="QUESTION"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -43,7 +42,6 @@
             android:layout_marginTop="20dp"
 
             android:gravity="center"
-            android:text="ANSWER_A"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -57,7 +55,6 @@
             android:layout_marginTop="126dp"
 
             android:gravity="center"
-            android:text="ANSWER_B"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -71,7 +68,6 @@
             android:layout_marginTop="232dp"
 
             android:gravity="center"
-            android:text="ANSWER_C"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -85,7 +81,6 @@
             android:layout_marginTop="338dp"
 
             android:gravity="center"
-            android:text="ANSWER_D"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp" />
@@ -164,7 +159,6 @@
         android:width="300dp"
         android:height="70dp"
         android:gravity="center"
-        android:text="NEXT"
         android:textAlignment="center"
 
         android:textColor="@color/black"
