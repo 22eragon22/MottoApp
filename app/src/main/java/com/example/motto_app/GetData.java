@@ -17,23 +17,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class GetData {
+public class GetData extends ViewModel{
 
     private final Context context;
     private String url;
     private Integer index;
-    private String name;
-    private String text;
+    private MutableLiveData<JSONObject> info;
 
-
-    public GetData(Context context, String url, Integer index, String name) {
+    public GetData(Context context, String url, Integer index) {
         this.context = context;
         this.url = url;
         this.index = index;
-        this.name = name;
     }
 
-    public void RequestGiver() {
+
+
+    MutableLiveData <JSONObject> getTest() {
+        if (info == null) {
+            info = new MutableLiveData<>();
+            RequestGiver(); //My chosen function
+        }
+        return info;
+    }
+
+    private void RequestGiver() {
         RequestQueue queue = Volley.newRequestQueue(context);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -43,7 +50,6 @@ public class GetData {
 
                         try {
                             JSONObject info = response.getJSONObject(index);
-                            text = info.getString(name);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -62,8 +68,11 @@ public class GetData {
         queue.add(request);
     }
 
-    public String getText() {
-        return text;
+
+
+
+    public MutableLiveData<JSONObject> getInfo() {
+        return info;
     }
 
     public String getUrl() {
@@ -78,13 +87,6 @@ public class GetData {
     }
     public void setIndex(Integer index) {
         this.index = index;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
 }
 

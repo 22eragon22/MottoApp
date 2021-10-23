@@ -2,11 +2,7 @@ package com.example.motto_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -51,18 +47,13 @@ public class MainActivity extends AppCompatActivity {
 
         bN = findViewById(R.id.NextButton);
 
-        GetData gD = new GetData(MainActivity.this, url, index, "question");
-        gD.RequestGiver();
+        GetData gD = new GetData(MainActivity.this, url, index);
+        gD = new ViewModelProvider(this).get(GetData.class);
+        gD.getTest().observe(this, );
 
 //--------------------------------------------------------------------------------------------------//on-click listeners
-        texCorr = gD.getText();
 
-        bN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
     }
 }
