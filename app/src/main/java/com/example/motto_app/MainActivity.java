@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,17 +21,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
+//declaring variables from layout 0
+    Button bS;
+
+
+//declaring variables from layout 1
+    RadioGroup rG;
     TextView tQ, tA, tB, tC, tD;
-    String tCorr;
+    String tCorr, ans;
     Button bN;
-    int index = 0;
+    int index = 0, count = 0;
+
+//declaring variables from layout 2
+    TextView tS, tM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+//setting up variables from layout 1
+        rG = findViewById(R.id.radioGroup);
         tQ = findViewById(R.id.textQuestion);
         tA = findViewById(R.id.answerAText);
         tB = findViewById(R.id.answerBText);
@@ -39,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         bN = findViewById(R.id.NextButton);
         bN.setText("START");
 
-
+//establishing connection
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(APIInterface.url)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -56,21 +67,27 @@ public class MainActivity extends AppCompatActivity {
 
                 List<QuizQuestion> Questions = response.body();
 
+
+//on-click mechanics
+
                 bN.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (index < 3) {
-                            bN.setText("NEXT");
-                            QuizQuestion QuesInd = Questions.get(index);
-                            tQ.setText(QuesInd.getQuestion());
-                            tA.setText(QuesInd.getAnswerA());
-                            tB.setText(QuesInd.getAnswerB());
-                            tC.setText(QuesInd.getAnswerC());
-                            tD.setText(QuesInd.getAnswerD());
-                            tCorr = QuesInd.getCorrectAns();
-                            index++;
+                            if (rG.getCheckedRadioButtonId() != -1) {
+                                QuizQuestion QuesInd = Questions.get(index);
+                                tQ.setText(QuesInd.getQuestion());
+                                tA.setText(QuesInd.getAnswerA());
+                                tB.setText(QuesInd.getAnswerB());
+                                tC.setText(QuesInd.getAnswerC());
+                                tD.setText(QuesInd.getAnswerD());
+                                tCorr = QuesInd.getCorrectAns();
+                                index++;
+                            }
                         } else {
+
                             setContentView(R.layout.activity_finish);
+
                         }
                     }
                 });
