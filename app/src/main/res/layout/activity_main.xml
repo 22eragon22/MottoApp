@@ -25,19 +25,19 @@
         android:id="@+id/questionField"
 
         android:layout_width="300dp"
-        android:layout_height="450dp"
+        android:layout_height="550dp"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
 
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="35dp">
 
         <TextView
             android:id="@+id/answerAText"
 
             android:layout_width="280dp"
-            android:layout_height="86dp"
+            android:layout_height="111dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
 
@@ -50,9 +50,9 @@
             android:id="@+id/answerBText"
 
             android:layout_width="280dp"
-            android:layout_height="86dp"
+            android:layout_height="111dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="126dp"
+            android:layout_marginTop="151dp"
 
             android:gravity="center"
             android:textAlignment="center"
@@ -63,9 +63,9 @@
             android:id="@+id/answerCText"
 
             android:layout_width="280dp"
-            android:layout_height="86dp"
+            android:layout_height="111dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="232dp"
+            android:layout_marginTop="282dp"
 
             android:gravity="center"
             android:textAlignment="center"
@@ -76,9 +76,9 @@
             android:id="@+id/answerDText"
 
             android:layout_width="280dp"
-            android:layout_height="86dp"
+            android:layout_height="111dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="338dp"
+            android:layout_marginTop="413dp"
 
             android:gravity="center"
             android:textAlignment="center"
@@ -86,83 +86,63 @@
             android:textSize="18sp" />
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/buttonA"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-
-        android:id="@+id/radioGroup"
-
-        android:layout_marginBottom="141dp"
-        android:layout_marginStart="10dp"
-        android:layout_toStartOf="@+id/questionField">
-
-        <RadioButton
-            android:id="@+id/answerAButton"
-
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="38dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <RadioButton
-            android:id="@+id/answerBButton"
-
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="58dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/answerAButton" />
-
-        <RadioButton
-            android:id="@+id/answerCButton"
-
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="58dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/answerBButton" />
-
-        <RadioButton
-            android:id="@+id/answerDButton"
-
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="58dp"
-            android:layout_marginBottom="180dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/answerCButton" />
-    </RadioGroup>
+        android:layout_marginTop="185dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="35sp" />
 
     <Button
-        android:id="@+id/NextButton"
+        android:id="@+id/buttonB"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:gravity="center"
+        android:text="+"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="35sp" />
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
 
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="29dp"
-
-        android:width="300dp"
-        android:height="70dp"
+        android:layout_marginTop="445dp"
         android:gravity="center"
         android:textAlignment="center"
-
         android:textColor="@color/black"
-        android:textSize="30sp" />
+        android:text="+"
+        android:textSize="35sp" />
+    <Button
+        android:id="@+id/buttonD"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="580dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:text="+"
+        android:textSize="35sp" />
 
 
 </RelativeLayout>

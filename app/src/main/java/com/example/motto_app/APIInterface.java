@@ -3,6 +3,7 @@ package com.example.motto_app;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface APIInterface {
 
@@ -10,4 +11,10 @@ public interface APIInterface {
 
     @GET("quiz")
     Call<List<QuizQuestion>> getQuizQuestion();
+    @POST("quiz")
+    Call<String> postAnswer();
+
+
+    @GET("motto")
+    Call<List<MottoContent>> getMotto();
 }
