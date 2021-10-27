@@ -1,6 +1,5 @@
 package com.example.motto_app;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
+import java.util.Queue;
 import java.util.Random;
 
 import retrofit2.Call;
@@ -19,18 +19,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class MainActivity extends Activity{
+public class MainActivity extends AppCompatActivity{
 
 //declaring variables from layout 1-----------------------------------------------------------------
     TextView tQ, tA, tB, tC, tD;
     Button bA, bB, bC, bD;
-    int index = 0, count = 0;
+    String Corr;
+    int index = 0;
     int random = new Random().nextInt(8);
-
-//declaring variables from layout 2-----------------------------------------------------------------
-    TextView tS, tM;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,35 +64,37 @@ public class MainActivity extends Activity{
             public void onResponse(Call<List<QuizQuestion>> call, Response<List<QuizQuestion>> response) {
 
                 List<QuizQuestion> Questions = response.body();
-                QuizQuestion QuesInd = Questions.get(index);
 
+
+                QuizQuestion QuesInd = Questions.get(index);
                 tQ.setText(QuesInd.getQuestion());
                 tA.setText(QuesInd.getAnswerA());
                 tB.setText(QuesInd.getAnswerB());
                 tC.setText(QuesInd.getAnswerC());
                 tD.setText(QuesInd.getAnswerD());
-                index++;
+                Corr = QuesInd.getCorrectAns();
+                System.out.println(Corr);
+
 
                 bA.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (index < 3) {
-                            QuizQuestion QuesInd = Questions.get(index);
-                            tQ.setText(QuesInd.getQuestion());
-                            tA.setText(QuesInd.getAnswerA());
-                            tB.setText(QuesInd.getAnswerB());
-                            tC.setText(QuesInd.getAnswerC());
-                            tD.setText(QuesInd.getAnswerD());
+                        @Override
+                        public void onClick(View view) {
                             index++;
-                        } else {
-                            setContentView(R.layout.activity_finish);
+                            if (index < 3) {
+                                QuizQuestion QuesInd = Questions.get(index);
+                                tQ.setText(QuesInd.getQuestion());
+                                tA.setText(QuesInd.getAnswerA());
+                                tB.setText(QuesInd.getAnswerB());
+                                tC.setText(QuesInd.getAnswerC());
+                                tD.setText(QuesInd.getAnswerD());
+                                Corr = QuesInd.getCorrectAns();
+                            }
                         }
-                    }
-                });
-
+                    });
                 bB.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
+                        index++;
                         if (index < 3) {
                             QuizQuestion QuesInd = Questions.get(index);
                             tQ.setText(QuesInd.getQuestion());
@@ -104,16 +102,14 @@ public class MainActivity extends Activity{
                             tB.setText(QuesInd.getAnswerB());
                             tC.setText(QuesInd.getAnswerC());
                             tD.setText(QuesInd.getAnswerD());
-                            index++;
-                        } else {
-                            setContentView(R.layout.activity_finish);
+                            Corr = QuesInd.getCorrectAns();
                         }
                     }
                 });
-
                 bC.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
+                        index++;
                         if (index < 3) {
                             QuizQuestion QuesInd = Questions.get(index);
                             tQ.setText(QuesInd.getQuestion());
@@ -121,17 +117,14 @@ public class MainActivity extends Activity{
                             tB.setText(QuesInd.getAnswerB());
                             tC.setText(QuesInd.getAnswerC());
                             tD.setText(QuesInd.getAnswerD());
-                            index++;
-                        } else {
-                            setContentView(R.layout.activity_finish);
+                            Corr = QuesInd.getCorrectAns();
                         }
                     }
-
                 });
-
                 bD.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View view) {
+                        index++;
                         if (index < 3) {
                             QuizQuestion QuesInd = Questions.get(index);
                             tQ.setText(QuesInd.getQuestion());
@@ -139,13 +132,10 @@ public class MainActivity extends Activity{
                             tB.setText(QuesInd.getAnswerB());
                             tC.setText(QuesInd.getAnswerC());
                             tD.setText(QuesInd.getAnswerD());
-                            index++;
-                        } else {
-                            setContentView(R.layout.activity_finish);
+                            Corr = QuesInd.getCorrectAns();
                         }
                     }
                 });
-
             }
 
             @Override
@@ -154,27 +144,5 @@ public class MainActivity extends Activity{
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-//call for motto------------------------------------------------------------------------------------
-
-        Call<List<MottoContent>> call2 = api.getMotto();
-
-        call2.enqueue(new Callback<List<MottoContent>>() {
-            @Override
-            public void onResponse(Call<List<MottoContent>> call, Response<List<MottoContent>> response) {
-
-                List<MottoContent> content = response.body();
-                MottoContent contentInd = content.get(random);
-
-                tM.setText(contentInd.getContent());
-            }
-
-            @Override
-            public void onFailure(Call<List<MottoContent>> call, Throwable t) {
-                t.printStackTrace();
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
     }
 }
