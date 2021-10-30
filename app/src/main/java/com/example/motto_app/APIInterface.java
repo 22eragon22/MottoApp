@@ -11,9 +11,6 @@ public interface APIInterface {
 
     @GET("quiz")
     Call<List<QuizQuestion>> getQuizQuestion();
-    @POST("quiz")
-    Call<String> postAnswer();
-
 
     @GET("motto")
     Call<List<MottoContent>> getMotto();

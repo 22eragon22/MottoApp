@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,27 +12,40 @@
 
         android:layout_width="match_parent"
         android:layout_height="146dp"
-        android:layout_marginTop="260dp"
 
         android:gravity="center"
         android:text="Score:\n 0 / 3"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textMotto"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textMotto"
 
         android:layout_width="match_parent"
-        android:layout_height="176dp"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
+        android:layout_height="200dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginBottom="250dp"
 
-        android:padding="10dp"
+        android:gravity="center"
+        android:padding="15dp"
         android:text="Motto motto motto motto motto motto motto motto"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textScore"
+        app:layout_constraintTop_toBottomOf="@+id/textScore" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
