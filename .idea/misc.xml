@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Your_/AndroidStudioProjects/MottoApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Your_/AndroidStudioProjects/MottoApp/app/src/main/res/layout/activity_main.xml" value="0.537590113285273" />
         <entry key="..\:/Users/Your_/AndroidStudioProjects/MottoApp/app/src/main/res/layout/fragment__finish.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Your_/AndroidStudioProjects/MottoApp/app/src/main/res/layout/fragment__quiz.xml" value="0.264" />
         <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/activity_finish.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/activity_start.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/fragment__finish.xml" value="0.33" />
+        <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/fragment__quiz.xml" value="0.33" />
         <entry key="..\:/Users/Your_/AndroidStudioProjects/Motto_App/app/src/main/res/layout/start_layout.xml" value="0.25104166666666666" />
       </map>
     </option>

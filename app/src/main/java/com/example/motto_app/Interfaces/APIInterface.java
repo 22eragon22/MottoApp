@@ -1,9 +1,11 @@
-package com.example.motto_app;
+package com.example.motto_app.Interfaces;
+
+import com.example.motto_app.Objects.MottoContent;
+import com.example.motto_app.Objects.QuizQuestion;
 
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 public interface APIInterface {
 

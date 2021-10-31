@@ -1,4 +1,4 @@
-package com.example.motto_app;
+package com.example.motto_app.Objects;
 
 public class QuizQuestion {
     private Integer id;

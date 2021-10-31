@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment_Quiz">
+    tools:context=".Fragments.Fragment_Quiz"
+    android:background="@color/peach">
 
 
     <TextView
@@ -15,11 +16,14 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
+
         android:gravity="center"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:background="@color/maroon"
         android:textSize="18sp"
         android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +50,8 @@
 
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:background="@color/maroon"
             android:textSize="18sp" />
 
         <TextView
@@ -59,7 +64,8 @@
 
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:background="@color/maroon"
             android:textSize="18sp" />
 
         <TextView
@@ -72,7 +78,8 @@
 
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:background="@color/maroon"
             android:textSize="18sp" />
 
         <TextView
@@ -85,7 +92,8 @@
 
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:background="@color/maroon"
             android:textSize="18sp" />
     </RelativeLayout>
 
@@ -100,8 +108,10 @@
         android:gravity="center"
         android:text="+"
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/maroon"
+
         app:layout_constraintBottom_toTopOf="@+id/buttonB"
         app:layout_constraintEnd_toStartOf="@+id/questionField"
         app:layout_constraintStart_toStartOf="parent" />
@@ -117,8 +127,9 @@
         android:gravity="center"
         android:text="+"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/maroon"        android:textSize="35sp"
+
         app:layout_constraintBottom_toTopOf="@+id/buttonC"
         app:layout_constraintEnd_toStartOf="@+id/questionField"
         app:layout_constraintStart_toStartOf="parent" />
@@ -134,8 +145,8 @@
         android:gravity="center"
         android:text="+"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/maroon"        android:textSize="35sp"
 
         app:layout_constraintBottom_toTopOf="@+id/buttonD"
         app:layout_constraintEnd_toStartOf="@+id/questionField"
@@ -152,8 +163,10 @@
         android:gravity="center"
         android:text="+"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/maroon"
         android:textSize="35sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/questionField"
         app:layout_constraintStart_toStartOf="parent" />
